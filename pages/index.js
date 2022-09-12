@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import Head from 'next/head';
 import Script from 'next/script';
 import Navbar from '../components/navbar'
+=======
+import Head from "next/head";
+import Script from "next/script";
+import styles from "../styles/Home.module.css";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+>>>>>>> c7616c55723f4b9a874b5847e33be00ea85c410d
 export default function Home() {
   return (
     <div>
@@ -17,13 +25,11 @@ export default function Home() {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
         />
-
       </Head>
-       <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"/>
-
-    
+      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" />
 
       <Navbar />
+      <Footer />
     </div>
   );
 }
