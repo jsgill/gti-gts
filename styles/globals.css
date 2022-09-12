@@ -1,26 +1,46 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #635b67;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
-
-a {
-  color: inherit;
+.sidenav .nav-item .nav-link {
   text-decoration: none;
+  display: block;
+  transition: 0.3s;
 }
-
-* {
-  box-sizing: border-box;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.nav-link {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  align-items: center;
+  height: 44px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  color: #fff;
+  flex-direction: row-reverse;
+}
+.hisar-biz {
+  width: 114px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-left: 12px;
+}
+@media only screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
