@@ -8,11 +8,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-}
-.sidenav .nav-item .nav-link {
-  text-decoration: none;
-  display: block;
-  transition: 0.3s;
+  display: none;
 }
 .sidenav .closebtn {
   position: absolute;
@@ -32,6 +28,9 @@
   justify-content: space-between;
   color: #fff;
   flex-direction: row-reverse;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
 }
 .hisar-biz {
   width: 114px;
@@ -44,3 +43,12 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+@media only screen and (max-width: 768px) {
+  .sidenav {
+    display: block;
+  }
+  .nav-item{
+    padding-left: 2rem;
+  }
+}
+
