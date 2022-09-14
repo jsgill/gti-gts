@@ -19,7 +19,6 @@ const handlerUser = async (req, res) => {
         return res.status(404).send('Password not match');
 
       let user = await User.findOne({ email: email });
-      console.log(' get user ===', user);
       if (user) {
         return res.status(400).send('User already exist');
       }
@@ -44,7 +43,6 @@ const handlerUser = async (req, res) => {
         expiresIn: 300000,
       });
       user.token = jwttoken;
-      console.log(' token ======>', user.token);
       return res
         .status(200)
         .send({ msg: 'User create successfully', user: user });
