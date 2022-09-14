@@ -27,7 +27,7 @@ function Forgot() {
                 </div>
                 <p className={styles.forgot_para}>Please enter your email address below. You will receive an email with a link to create a new password.</p>
                 <label className={styles.forget_label}>Email address</label><br />
-                <input type="text" placeholder='Email address' name="email" value='' className={styles.forget_input} />
+                <input type="text" placeholder='Email address' name="email" className={styles.forget_input} />
                 <div className={styles.forget_button}>
                     <button className={styles.forget_submit}>Submit</button>
                 </div>

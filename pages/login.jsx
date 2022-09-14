@@ -33,8 +33,8 @@ function Login() {
                         </div>
                         <div className='row' id={styles.signup_main}>
                             <div className='col-lg-5' id={styles.main_inputs}>
-                                <input type="text" placeholder='Email address' name="email" value='' className={styles.signup_input} />
-                                <input type="password" placeholder='Password' name="password" value="" className={styles.signup_input} />
+                                <input type="text" placeholder='Email address' name="email" className={styles.signup_input} />
+                                <input type="password" placeholder='Password' name="password" className={styles.signup_input} />
                                 <input type="checkbox" /><span className={styles.remember_me}> Remember Me</span><Link href='/forgot'><span className={styles.forgot_link}>Forgot your password?</span></Link>
                                 <div className={styles.button_main_div}>
                                     <button className={styles.register_button}>Sign in</button>

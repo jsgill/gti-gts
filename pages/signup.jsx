@@ -35,13 +35,13 @@ function Signup() {
                             <p className={styles.register_paragraph}>By registering, I agree to HisarBiz's Terms of Use and Privacy Policy and
                                 I consent to receiving marketing communications from Gumtree.</p>
                             <div className='col-lg-5' id={styles.main_inputs}>
-                                <input type="text" placeholder='Email address' name="email" value='' className={styles.signup_input} />
-                                <input type="text" placeholder='Your name' name="username" value='' className={styles.signup_input} />
+                                <input type="text" placeholder='Email address' name="email" className={styles.signup_input} />
+                                <input type="text" placeholder='Your name' name="username" className={styles.signup_input} />
                                 <div>
                                     <label className={styles.signup_label}>Password creation tips</label><br />
-                                    <input type="password" placeholder='Password' name="password" value="" className={styles.signup_input} />
+                                    <input type="password" placeholder='Password' name="password" className={styles.signup_input} />
                                 </div>
-                                <input type="password" placeholder='Confirm password' name="password" value="" className={styles.signup_input} />
+                                <input type="password" placeholder='Confirm password' name="password" className={styles.signup_input} />
                                 <div className={styles.button_main_div}>
                                     <button className={styles.register_button}>Register</button>
                                     <p className={styles.already_registered}>Already registered with HisarBiz? <Link href='/login' className={styles.link_signin}>Sign in</Link></p>
