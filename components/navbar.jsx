@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import gumtree from "../public/images/gumtree_logo.svg";
+
 function navbar() {
     return (
         <div>
@@ -40,6 +41,11 @@ function navbar() {
                             </li>
                         </ul>
                     </div>
+                    <ul>
+                        <li className="nav-item">
+                            <Link href='/signup'><a className="nav-link">Login / Register</a></Link>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>

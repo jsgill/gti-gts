@@ -3,6 +3,7 @@ import Footer from '../components/footer';
 import Script from 'next/script';
 import Navbar from '../components/navbar';
 import FeatureCategory from '../components/featureCategory';
+// import GumTree from '../components/gumTree';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         crossOrigin='anonymous'
       />
       <Navbar />
+      {/* <GumTree /> */}
       <FeatureCategory />
       <Footer />
     </div>

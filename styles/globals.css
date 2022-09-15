@@ -1,4 +1,40 @@
-
+body {
+  margin: 0px;
+}
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #635b67;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  display: none;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white;
+}
+.nav-link {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  align-items: center;
+  height: 44px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  color: #fff;
+  flex-direction: row-reverse;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+}
 .hisar-biz {
   font-size: 15px;
   line-height: 22px;
