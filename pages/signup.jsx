@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Signup.module.css';
 import Image from "next/image";
 import Navbar from '../components/navbar';
 import google_icon from '../public/images/google.jpg'
 import Link from 'next/link';
 import gumtree from "../public/images/gumtree_logo.svg";
+import axios from 'axios';
 
 function Signup() {
+    const [form, setForm] = useState({
+        email: "",
+        username: "",
+        password: "",
+        confirm_password: ""
+    });
+    const { email, username, password, confirm_password } = form
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    const handleSubmit = async () => {
+        console.log("form =====>", form)
+        await fetch('http://localhost:3000/api/user/signup', {
+            method: "POST",
+            body: JSON.stringify(form),
+            headers:
+            {
+                "Content-Type":
+                    "application/json",
+            },
+        }).then((res) => {
+            console.log(" res data =======>", res)
+
+        })
+        //const data = response.json()
+        // const res = await axios.post('http://localhost:3000/api/user/signup', form)
+        // console.log("response ---->", res)
+    }
     return (
         <div>
             <Navbar />
@@ -36,15 +66,15 @@ function Signup() {
                                 I consent to receiving marketing communications from Gumtree.</p>
                             <div className='col-lg-5' id={styles.main_inputs}>
                                 <div className={styles.main_inputs11}>
-                                    <input type="text" placeholder='Email address' name="email" className={styles.signup_input} />
-                                    <input type="text" placeholder='Your name' name="username" className={styles.signup_input} />
+                                    <input type="text" placeholder='Email address' name="email" className={styles.signup_input} value={email} onChange={(e) => handleChange(e)} />
+                                    <input type="text" placeholder='Your name' name="username" className={styles.signup_input} value={username} onChange={(e) => handleChange(e)} />
                                     <div>
                                         <label className={styles.signup_label}>Password creation tips</label><br />
-                                        <input type="password" placeholder='Password' name="password" className={styles.signup_input} />
+                                        <input type="password" placeholder='Password' name="password" className={styles.signup_input} value={password} onChange={(e) => handleChange(e)} />
                                     </div>
-                                    <input type="password" placeholder='Confirm password' name="password" className={styles.signup_input} />
+                                    <input type="password" placeholder='Confirm password' name="confirm_password" className={styles.signup_input} value={confirm_password} onChange={(e) => handleChange(e)} />
                                     <div className={styles.button_main_div}>
-                                        <button className={styles.register_button}>Register</button>
+                                        <button className={styles.register_button} onClick={handleSubmit}>Register</button>
                                         <p className={styles.already_registered}>Already registered with HisarBiz? <Link href='/login' className={styles.link_signin}>Sign in</Link></p>
                                     </div>
                                 </div>

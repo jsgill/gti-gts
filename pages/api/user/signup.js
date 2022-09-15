@@ -45,7 +45,7 @@ const handlerUser = async (req, res) => {
       user.token = jwttoken;
       return res
         .status(200)
-        .send({ msg: 'User create successfully', user: user });
+        .json({ msg: 'User create successfully', data: user });
     } catch (err) {
       console.log('++++++ Server error ++++++', err);
     }
