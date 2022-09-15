@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import gumtree from "../public/images/gumtree_logo.svg";
 import styles from "../styles/GumTree.module.css";
 
 function GumTree() {
+  const [showMe, setShowMe] = useState(false);
+  const [showMeli, setShowMeli] = useState(false);
+  function toggle() {
+    setShowMe(!showMe);
+  }
+  function toggleli() {
+    setShowMeli(!showMeli);
+  }
   return (
     <div>
       <div
@@ -41,26 +49,135 @@ function GumTree() {
             </div>
             <div className="col-md-11 m-auto" id={styles.container_main_select}>
               <div className="row">
-                <div className="col-md-3 p-0">
-                  <select className={styles.container_select}>
-                    <option>All Categories</option>
-                    <option>Antiques, Art & Collectables</option>
-                    <option>Baby & Children</option>
-                    <option>Boats & Jet Skis</option>
-                    <option>Books, Music & Games</option>
-                    <option>Cars & Vechiles</option>
-                    <option>Clothing & Jewelery</option>
-                    <option>Community</option>
-                    <option>Electronics & Computer</option>
-                    <option>Home & Garden</option>
-                    <option>Jobs</option>
-                    <option>Miscellaneous Goods</option>
-                    <option>Pets</option>
-                    <option>Real Estate</option>
-                    <option>Services For Hire</option>
-                    <option>Sport & Fitness</option>
-                    <option>Tickets</option>
-                  </select>
+                <div className="col-md-3 p-0" id={styles.container_sub_select}>
+                  <button onClick={toggle} className={styles.container_select1}>
+                    <i className="fa fa-align-left"></i>All Categories
+                    <i className="fa fa-angle-down" id={styles.dropdown}></i>
+                  </button>
+                  <div
+                    style={{
+                      display: showMe ? "block" : "none",
+                    }}
+                  >
+                    <ul className={styles.select_ul}>
+                      <p>
+                        <i
+                          className="fa fa-align-left"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        All Categories
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-image"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Antiques,Art & Collections
+                      </p>
+                      <p>
+                        <i
+                          className="fa-sharp fa-solid fa-bowl-hot"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Baby & Children
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-ship"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Boats & Jet Skis
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-book"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Books, Music & Games
+                      </p>
+                      <p>
+                        <i className="fa fa-car" id={styles.select_ul_icon}></i>
+                        Cars & Vechiles
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-clothes-hanger"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Clothing & Jewellery
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-users"
+                          id={styles.select_ul_icon}
+                        ></i>
+                        Community
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-mobile"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Electronics & Computer
+                      </p>
+                      <p>
+                        <i
+                          className="fa-solid fa-cauldron"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Home & Garden
+                      </p>
+                      <p>
+                        <i
+                          className="fa-solid fa-bag-shopping"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Jobs
+                      </p>
+                      <p>
+                        <i
+                          className="fa-solid fa-cart-shopping"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Miscellaneous Goods
+                      </p>
+                      <p>
+                        <i
+                          className="fa-solid fa-bone"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Pets
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-building"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Real Estate
+                      </p>
+                      <p>
+                        <i
+                          className="fa-solid fa-brush"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Services For Hire
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-bicycle"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Sport & Fitness
+                      </p>
+                      <p>
+                        <i
+                          className="fa fa-ticket"
+                          id={styles.select_ul_icon1}
+                        ></i>
+                        Tickets
+                      </p>
+                    </ul>
+                  </div>
                 </div>
                 <div className="col-md-4 p-0">
                   <input
@@ -90,7 +207,7 @@ function GumTree() {
                 </div>
                 <div className="col-md-1">
                   <button className={styles.select_section_btn}>
-                    <i class="fa fa-align-left"></i>
+                    <i className="fa fa-align-left"></i>
                   </button>
                 </div>
               </div>
