@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/Footer.module.css";
-import gum_tree_logo from "../public/images/gum_tree_logo.png";
+import gumtree from "../public/images/gumtree_logo.svg";
 import footer_logo_1 from "../public/images/footer_logo_1.svg";
 import footer_logo_2 from "../public/images/footer_logo_2.svg";
 import footer_planet from "../public/images/footer_planet.svg";
@@ -13,12 +13,7 @@ function Footer() {
         <div>
           <div className="d-flex">
             <div id={styles.footer_logo}>
-              <Image
-                src={gum_tree_logo}
-                alt="gum-tree"
-                height={400}
-                className={styles.gum_tree_logo}
-              />
+              <Image src={gumtree} alt="gum-tree" />
             </div>
             <div>
               <h6 className={styles.footer_h6}>

@@ -1,0 +1,91 @@
+#up_container{
+     position: absolute;
+     left: 0;
+     right: 0;
+     top:10%
+    }
+.gumtree_main_container{
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+#gumtree_container{
+    display: flex;
+    padding-left: 70px;
+}
+.gumtree_container_h4{
+    padding-left: 10px;
+    margin-top: -5px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    font-family: ProximaNova-Bold,Arial,Helvetica,sans-serif;
+}
+.gumtree_container_h4_two{
+    padding-left: 12px;
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    padding-bottom: 48px;
+    font-family: FilsonProBold,ProximaNova-Bold,Arial,Helvetica,sans-serif;
+}
+.gumtree_btn{
+    border: none;
+    background-color: #3baa33;
+    padding: 14px 35px;
+    font-size: 14.5px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 3px;
+    float: right;
+}
+#gumtree_btn_cont{
+    padding-right: 71px;
+    margin-top: -12px;
+}
+#container_main_select{
+background-color: #00000080;
+width: 90%;
+padding: 30px 5px;
+}
+.container_select{
+    padding: 20px;
+    width: 100%;
+    margin-left: 35px;
+    outline: none;
+    border: 1px solid rgb(226, 222, 222);
+}
+.container_select2{
+    padding: 15px;
+    width: 100%;
+    margin-left: 35px;
+    font-size: 22px;
+    outline: none;
+    border: 1px solid rgb(230, 230, 230);
+}
+.container_select3{
+    padding: 21px 2px;
+    width: 77%;
+    margin-left: 35px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid rgb(230, 230, 230);
+}
+.select_section_btn{
+    padding: 20.5px 20px;
+    border: none;
+    background-color: #3baa33;
+    color: #fff;
+   
+}
+.select_section_btn i{
+font-size: 20px;
+color: #fff;
+z-index: 1;
+}
+.container_option{
+    background-color: #3baa33;
+    
+    text-align: center;
+}
