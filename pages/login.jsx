@@ -31,7 +31,7 @@ function Login() {
                         <div className='text-center'>
                             <p className={styles.register_p}>Sign in</p>
                         </div>
-                        <div className='row' id={styles.signup_main}>
+                        <div className='row' id={styles.signup_main11}>
                             <div className='col-lg-5' id={styles.main_inputs}>
                                 <input type="text" placeholder='Email address' name="email" className={styles.signup_input} />
                                 <input type="password" placeholder='Password' name="password" className={styles.signup_input} />

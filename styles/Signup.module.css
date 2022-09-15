@@ -12,6 +12,7 @@
 .signup_container {
   padding-top: 53px;
   background-color: #f4f4f4;
+  padding-bottom: 70px;
 }
 .signup_h3 {
   margin-left: 25px;
@@ -56,10 +57,8 @@
 }
 #signup_facebook {
   color: #4267b2;
-  /* font-size: 23px; */
   cursor: pointer;
   background-color: transparent;
-  /* align-items: center; */
 }
 .signup_para11 {
   color: #fff;
@@ -95,6 +94,7 @@
   text-align: center;
   font-family: sans-serif;
   font-weight: 500;
+  padding-top: 50px;
 }
 .signup_input {
   outline: none;
@@ -111,20 +111,21 @@
   cursor: pointer;
   padding: 5px;
 }
+.main_inputs11 {
+  margin-left: 20px;
+}
 #signup_main {
   background-color: white;
-  padding: 35px;
+  /* padding: 35px; */
 }
 #signup_tag {
-  padding-left: 77px;
+  padding-left: 113px;
 }
 .signup_border_line {
   min-height: 70px;
-  padding-left: 3em;
   border-left: 1px solid #d6d6d6;
   height: 117px;
   position: relative;
-  width: 295px;
   order: 2;
 }
 .signup_border_line::before {
@@ -142,7 +143,7 @@
   padding-left: 40px;
 }
 #container11 {
-  padding: 165px;
+  margin-top: 70px;
 }
 .register_button {
   border: 0px;
@@ -154,9 +155,9 @@
   border-radius: 5px;
   margin-top: 10px;
 }
-.main_div_container {
-  margin-top: -116px;
-}
+/* #main_inputs {
+  padding-left: 5px;
+} */
 .already_registered {
   font-size: 14px;
   font-family: sans-serif;
@@ -171,6 +172,11 @@
   font-size: 13px;
   padding: 8px;
   cursor: pointer;
+}
+#signup_main11 {
+  background-color: white;
+  padding-top: 37px;
+  padding-bottom: 22px;
 }
 .forgot_link {
   font-size: 13px;

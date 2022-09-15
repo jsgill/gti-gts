@@ -41,10 +41,10 @@ function navbar() {
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link href="/"><a className="nav-link">Sign In</a></Link>
+                                <Link href="/login"><a className="nav-link">Sign In</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link href="/"><a className="nav-link">Register</a></Link>
+                                <Link href="/signup"><a className="nav-link">Register</a></Link>
                             </li>
                         </ul>
                     </div>
