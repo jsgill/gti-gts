@@ -1,41 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/Signup.module.css';
 import Image from "next/image";
 import Navbar from '../components/navbar';
-import google_icon from '../public/images/google.jpg'
+import google_icon from '../public/images/google.jpg';
 import Link from 'next/link';
 import gumtree from "../public/images/gumtree_logo.svg";
-import axios from 'axios';
+import { useForm } from "react-hook-form";
 
 function Signup() {
-    const [form, setForm] = useState({
-        email: "",
-        username: "",
-        password: "",
-        confirm_password: ""
-    });
-    const { email, username, password, confirm_password } = form
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    }
+    const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: "onTouched" });
 
-    const handleSubmit = async () => {
-        console.log("form =====>", form)
-        await fetch('http://localhost:3000/api/user/signup', {
+    const onSubmit = async (data) => {
+        console.log("form data ====>", data)
+
+        const response = await fetch('http://localhost:3000/api/user/signup', {
             method: "POST",
-            body: JSON.stringify(form),
-            headers:
-            {
-                "Content-Type":
-                    "application/json",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
             },
-        }).then((res) => {
-            console.log(" res data =======>", res)
-
         })
-        //const data = response.json()
-        // const res = await axios.post('http://localhost:3000/api/user/signup', form)
-        // console.log("response ---->", res)
+        const formInfo = await response.json()
+        console.log("response ---->", formInfo.data)
     }
     return (
         <div>
@@ -66,15 +52,38 @@ function Signup() {
                                 I consent to receiving marketing communications from Gumtree.</p>
                             <div className='col-lg-5' id={styles.main_inputs}>
                                 <div className={styles.main_inputs11}>
-                                    <input type="text" placeholder='Email address' name="email" className={styles.signup_input} value={email} onChange={(e) => handleChange(e)} />
-                                    <input type="text" placeholder='Your name' name="username" className={styles.signup_input} value={username} onChange={(e) => handleChange(e)} />
+                                    <input type="text" placeholder='Email address' name="email" className={styles.signup_input} defaultValue=""
+                                        {...register("email",
+                                            {
+                                                required: true,
+                                                pattern: /^[a-zA-Z0-9.!#$%'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+
+                                            })} />
+                                    {errors.email?.type === "required" && (<small className={styles.formError}>Enter your email</small>)}
+                                    {errors.email?.type === "pattern" && (<small className={styles.formError}>Please enter a valid email address</small>)}
+                                    <input type="text" placeholder='Your name' name="username" className={styles.signup_input} defaultValue=""
+                                        {...register("username", { required: true })}
+                                    />
+                                    {errors.username && (<small className={styles.formError}>Username is required</small>)}
                                     <div>
                                         <label className={styles.signup_label}>Password creation tips</label><br />
-                                        <input type="password" placeholder='Password' name="password" className={styles.signup_input} value={password} onChange={(e) => handleChange(e)} />
+                                        <input type="password" placeholder='Password' name="password" className={styles.signup_input} defaultValue=""
+                                            {...register("password", {
+                                                required: true,
+                                                pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,15}$/
+
+                                            })} />
+                                        {errors.password?.type === "required" && (<small className={styles.formError}>Please enter a password</small>)}
+                                        {errors.password?.type === "pattern" && (<small className={styles.formError}>Please enter a string character or number atleast 8</small>)}
                                     </div>
-                                    <input type="password" placeholder='Confirm password' name="confirm_password" className={styles.signup_input} value={confirm_password} onChange={(e) => handleChange(e)} />
+                                    <input type="password" placeholder='Confirm password' name="confirm_password" className={styles.signup_input} defaultValue=""
+                                        {...register("confirm_password", {
+                                            required: true,
+                                        })} />
+
+                                    {errors.confirm_password?.type === "required" && (<small className={styles.formError}>Please enter a password</small>)}
                                     <div className={styles.button_main_div}>
-                                        <button className={styles.register_button} onClick={handleSubmit}>Register</button>
+                                        <button className={styles.register_button} type="Submit" onClick={handleSubmit(onSubmit)}>Register</button>
                                         <p className={styles.already_registered}>Already registered with HisarBiz? <Link href='/login' className={styles.link_signin}>Sign in</Link></p>
                                     </div>
                                 </div>
