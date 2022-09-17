@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import gumtree from "../public/images/gumtree_logo.svg";
+import down_arrow from "../public/images/down_arrow.png";
 import styles from "../styles/GumTree.module.css";
 
 function GumTree() {
   const [showMe, setShowMe] = useState(false);
-  const [showMeli, setShowMeli] = useState(false);
+  const [list1, setList1] = useState("All Categories");
+
   function toggle() {
     setShowMe(!showMe);
   }
-  function toggleli() {
-    setShowMeli(!showMeli);
+
+  function handleChange(e) {
+    setList1(e.target.value);
   }
+
   return (
     <div>
       <div
@@ -49,134 +53,226 @@ function GumTree() {
             </div>
             <div className="col-md-11 m-auto" id={styles.container_main_select}>
               <div className="row">
-                <div className="col-md-3 p-0" id={styles.container_sub_select}>
-                  <button onClick={toggle} className={styles.container_select1}>
-                    <i className="fa fa-align-left"></i>All Categories
-                    <i className="fa fa-angle-down" id={styles.dropdown}></i>
-                  </button>
-                  <div
-                    style={{
-                      display: showMe ? "block" : "none",
-                    }}
-                  >
-                    <ul className={styles.select_ul}>
-                      <p>
-                        <i
-                          className="fa fa-align-left"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        All Categories
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-image"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Antiques,Art & Collections
-                      </p>
-                      <p>
-                        <i
-                          className="fa-sharp fa-solid fa-bowl-hot"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Baby & Children
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-ship"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Boats & Jet Skis
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-book"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Books, Music & Games
-                      </p>
-                      <p>
-                        <i className="fa fa-car" id={styles.select_ul_icon}></i>
-                        Cars & Vechiles
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-clothes-hanger"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Clothing & Jewellery
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-users"
-                          id={styles.select_ul_icon}
-                        ></i>
-                        Community
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-mobile"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Electronics & Computer
-                      </p>
-                      <p>
-                        <i
-                          className="fa-solid fa-cauldron"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Home & Garden
-                      </p>
-                      <p>
-                        <i
-                          className="fa-solid fa-bag-shopping"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Jobs
-                      </p>
-                      <p>
-                        <i
-                          className="fa-solid fa-cart-shopping"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Miscellaneous Goods
-                      </p>
-                      <p>
-                        <i
-                          className="fa-solid fa-bone"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Pets
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-building"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Real Estate
-                      </p>
-                      <p>
-                        <i
-                          className="fa-solid fa-brush"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Services For Hire
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-bicycle"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Sport & Fitness
-                      </p>
-                      <p>
-                        <i
-                          className="fa fa-ticket"
-                          id={styles.select_ul_icon1}
-                        ></i>
-                        Tickets
-                      </p>
-                    </ul>
+                <div className="col-md-3 p-0" onClick={toggle}>
+                  <div className={styles.hero}>
+                    <div className={styles.selector}>
+                      <div id={styles.selectField}>
+                        <p id={styles.selectText1}>
+                          <i
+                            className="fa fa-align-left"
+                            id={styles.search_icon}
+                          ></i>
+                          {list1}
+                        </p>
+                        <Image
+                          src={down_arrow}
+                          alt="hisar-bizz"
+                          height={13}
+                          width={20}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          display: showMe ? "block" : "none",
+                        }}
+                      >
+                        <ul id={styles.list}>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-align-left"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              onClick={handleChange}
+                              defaultValue="All Categories"
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-image"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              onClick={handleChange}
+                              defaultValue="Antiques, Art & Collectables"
+                            />
+                            <Image
+                              src={down_arrow}
+                              alt="hisar-bizz"
+                              height={13}
+                              width={20}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-image"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Baby & Children"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-ship"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Boats & Jet Skis"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-book"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Books, Music & Games"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-car"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Cars & Vechicles"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-clothes-hanger"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Clothing & Jewellery"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-users"
+                              id={styles.select_ul_icon}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Community"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-mobile"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Electronics & Computer"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa-solid fa-cauldron"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Home & Garden"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa-solid fa-bag-shopping"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Jobs"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa-solid fa-cart-shopping"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Miscellaneous Goods"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa-solid fa-bone"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Pets"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-building"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Real Estate"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa-solid fa-brush"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Services For Hire"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-bicycle"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Sport & Fitness"
+                              onClick={handleChange}
+                            />
+                          </li>
+                          <li className={styles.options}>
+                            <i
+                              className="fa fa-ticket"
+                              id={styles.select_ul_icon1}
+                            ></i>
+                            <input
+                              id={styles.selectText}
+                              defaultValue="Tickets"
+                              onClick={handleChange}
+                            />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-4 p-0">
@@ -186,15 +282,14 @@ function GumTree() {
                   />
                 </div>
                 <div className="col-md-3 p-0">
-                  <select className={styles.container_select}>
-                    <option value="">Australia</option>
-                    <option value="">Asia</option>
-                  </select>
+                  <p className={styles.container_select}>
+                    <i class="fa-sharp fa-solid fa-location-dot"></i>Australia
+                  </p>
                 </div>
                 <div className="col-md-1 p-0">
                   <select className={styles.container_select3}>
                     <option value="">+10km</option>
-                    <option className={styles.container_option}>0km</option>
+                    <option>0km</option>
                     <option>2km</option>
                     <option>5km</option>
                     <option>10km</option>
