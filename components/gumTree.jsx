@@ -32,8 +32,8 @@ function GumTree() {
           height={300}
           width={1250}
           className={styles.background_image}
-          // layout="fill"
-          // objectFit="cover"
+        // layout="fill"
+        // objectFit="cover"
         />
         <div className="container-fluid" id={styles.up_container}>
           <div className="row">
@@ -283,7 +283,7 @@ function GumTree() {
                 </div>
                 <div className="col-md-3 p-0">
                   <p className={styles.container_select}>
-                    <i class="fa-sharp fa-solid fa-location-dot"></i>Australia
+                    <i className="fa-sharp fa-solid fa-location-dot"></i>Australia
                   </p>
                 </div>
                 <div className="col-md-1 p-0">
