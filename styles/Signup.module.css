@@ -179,11 +179,14 @@
   padding-top: 37px;
   padding-bottom: 22px;
 }
+.checkbox_input {
+  margin-left: 12px;
+}
 .forgot_link {
   font-size: 13px;
   color: #3baa33;
   border-bottom: 1px solid #3baa33;
-  margin-left: 35px;
+  /* margin-left: 35px; */
   cursor: pointer;
 }
 /*forget password*/

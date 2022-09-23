@@ -5,8 +5,33 @@ import Navbar from '../components/navbar';
 import google_icon from '../public/images/google.jpg'
 import Link from 'next/link';
 import gumtree from "../public/images/gumtree_logo.svg";
+import { useForm } from "react-hook-form";
+import swal from 'sweetalert';
 
 function Login() {
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched" });
+    const onSubmit = async (data) => {
+        const response = await fetch('http://localhost:3000/api/user/login', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const formInfo = await response.json()
+        if (formInfo) {
+            swal({
+                title: formInfo.msg,
+                text: "You clicked the button!",
+                icon: "success",
+                button: "OK",
+            })
+        }
+        else {
+
+        }
+        console.log("response 222222---->", formInfo.data)
+    }
     return (
         <div>
             <Navbar />
@@ -33,11 +58,26 @@ function Login() {
                         </div>
                         <div className='row' id={styles.signup_main11}>
                             <div className='col-lg-5' id={styles.main_inputs}>
-                                <input type="text" placeholder='Email address' name="email" className={styles.signup_input} />
-                                <input type="password" placeholder='Password' name="password" className={styles.signup_input} />
-                                <input type="checkbox" /><span className={styles.remember_me}> Remember Me</span><Link href='/forgot'><span className={styles.forgot_link}>Forgot your password?</span></Link>
+                                <input type="text" placeholder='Email address' name="email" className={styles.signup_input} defaultValue=""
+                                    {...register("email",
+                                        {
+                                            required: true,
+                                            pattern: /^[a-zA-Z0-9.!#$%'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+
+                                        })} />
+                                {errors.email?.type === "required" && (<small className={styles.formError}>Enter your email</small>)}
+                                {errors.email?.type === "pattern" && (<small className={styles.formError}>Please enter a valid email address</small>)}
+                                <input type="password" placeholder='Password' name="password" className={styles.signup_input} defaultValue=""
+                                    {...register("password", {
+                                        required: true,
+                                        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[^a-zA-Z0-9])(?!.*\s).{7,15}$/
+
+                                    })} />
+                                {errors.password?.type === "required" && (<small className={styles.formError}>Please enter a password</small>)}
+                                {errors.password?.type === "pattern" && (<small className={styles.formError}>Please enter a string character or number atleast 8</small>)}
+                                <input type="checkbox" className={styles.checkbox_input} /><span className={styles.remember_me}> Remember Me</span><Link href='/forgot'><span className={styles.forgot_link}>Forgot your password?</span></Link>
                                 <div className={styles.button_main_div}>
-                                    <button className={styles.register_button}>Sign in</button>
+                                    <button className={styles.register_button} type="Submit" onClick={handleSubmit(onSubmit)}>Sign in</button>
                                     <p className={styles.already_registered}>Don't have an account? <Link href='/signup' className={styles.link_signin}>Register now</Link></p>
                                 </div>
                             </div>

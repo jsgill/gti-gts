@@ -17,7 +17,7 @@ const handlerAuth = async (req, res) => {
       }
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(400).send('Password not Match');
+        return res.status(400).send({ msg: 'Password not Match' });
       }
       // Create token
       const payload = {
@@ -29,7 +29,9 @@ const handlerAuth = async (req, res) => {
         expiresIn: 300000,
       });
       user.token = jwttoken;
-      return res.status(200).send(jwttoken);
+      return res
+        .status(200)
+        .send({ msg: 'User logged in successfully', data: user });
     } catch (err) {
       console.log('++++++ Server error ++++++', err);
     }

@@ -8,7 +8,7 @@ import gumtree from "../public/images/gumtree_logo.svg";
 import { useForm } from "react-hook-form";
 
 function Signup() {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: "onTouched" });
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched" });
 
     const onSubmit = async (data) => {
         console.log("form data ====>", data)
@@ -20,8 +20,9 @@ function Signup() {
                 "Content-Type": "application/json",
             },
         })
+        console.log("response 111111=======>", response)
         const formInfo = await response.json()
-        console.log("response ---->", formInfo.data)
+        console.log("response 222222---->", formInfo.data)
     }
     return (
         <div>
